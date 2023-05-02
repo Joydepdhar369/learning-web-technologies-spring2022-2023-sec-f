@@ -1,7 +1,100 @@
 <html>
     <head>
         <title>AIUB Library</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <style>
+		body {
+			font-family: Arial, sans-serif;
+			color: #333;
+			}
+
+			h1 {
+			font-size: 36px;
+			text-align: center;
+			margin-top: 40px;
+			}
+
+			h3 {
+			font-size: 24px;
+			text-align: center;
+			margin-top: 10px;
+			}
+
+			fieldset {
+			background-color: #fff;
+			border: 2px solid #ccc;
+			border-radius: 5px;
+			padding: 20px;
+			margin-bottom: 40px;
+            
+			}
+            #First_Login{
+            width:400px;
+            height: 500px;
+            margin-left:250px;
+            }
+			legend {
+			font-size: 24px;
+			font-weight: bold;
+			}
+
+			a {
+			text-decoration: none;
+			color: #333;
+			transition: color 0.3s ease;
+			}
+
+			a:hover {
+			color: #4CAF50;
+			}
+
+			input[type=text], input[type=password], input[type=submit], input[type=reset] {
+			display: block;
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			margin-bottom: 20px;
+			box-sizing: border-box;
+			font-size: 16px;
+			}
+
+			input[type=submit], input[type=reset] {
+			background-color: #4CAF50;
+			color: #fff;
+			border: none;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+			}
+
+			input[type=submit]:hover, input[type=reset]:hover {
+			background-color: #45a049;
+			}
+			span{
+			color:red;
+			font: bold;
+			}
+
+	</style>
     </head>
+    <script>
+    function validateForm() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        if (username == "") {
+            alert("Please enter a username.");
+            return false;
+        }
+        
+        if (password == "") {
+            alert("Please enter a password.");
+            return false;
+        }
+
+        return true;
+    }
+    </script>
     <body>
         <div align="right">
         <html>
@@ -19,9 +112,9 @@
                                 <img height="120" src="LibraryLogo.jpg">
                             </td>
                             <td align="right">
-                                <a href="WelcomePage.php">Home</a> 
-                                <a href="login.php">| SignIn</a>   
-                                <a href="reg.php">| SignUp</a>  
+                                <a href="WelcomePage.php"><i class="fas fa-home"></i> Home</a>  
+                                <a href="login.php">| <i class="fas fa-sign-in-alt"></i> Sign In</a>
+                                <a href="reg.php">| <i class="fas fa-user-plus"></i> Sign Up</a> 
                             </td>    
                         </tr>    
                     </table>                   
@@ -29,16 +122,15 @@
             </tr>
             <tr>
                 <td>          
-                    <form method="POST" action="../controls/Logincheck.php"  >
-                            <fieldset>
-                               <legend align="center"><h2>SignIn</h2></legend>
-                                    Username: <input type="text" name="username" value=""/> <br><br>
-                                    Password: <input type="password" name="password" value=""/> <br> 
-                                    <hr>
-                                    <input type="radio" name="rememberme" value=""/> Remember Me <br><br>
-                                    <input type="submit" name="submit" value="Sign In"/>
-                                    <a href="FogetPassword.php">Forgot Password?</a>  
-                            </fieldset>
+                    <form method="POST" action="../controls/Logincheck.php" onsubmit="return validateForm()">
+                        <fieldset id="First_Login">
+                            <legend align="center"><h2>SignIn</h2></legend>
+                            Username: <input type="text" name="username" id="username" /> <br><br>
+                            Password: <input type="password" name="password" id="password" /> <br>
+                            <hr>
+                            <input type="submit" name="submit" value="Sign In"/>
+                            <a href="FogetPassword.php">Forgot Password?</a>
+                        </fieldset>
                     </form>
                 </td>
             <tr>

@@ -17,11 +17,11 @@
         if(empty($name))
             {
             $err ="Where is your name?";
-            header('location:reg.php?err='.$err);
+            header('location:../views/reg.php?err='.$err);
             }else if (empty($username))
         {
         $u_err ="Where is your User Name?";
-        header('location:reg.php?u_err='.$u_err);
+        header('location:../views/reg.php?err='.$u_err);
         }else if (empty($email))
         {
         $e_err ="Where is your User Name?";
@@ -29,14 +29,14 @@
         }else if(!filter_var($email,FILTER_VALIDATE_EMAIL))
         {
         $email_err ="Email formate is not okay.";
-        header('location:reg.php?email_err='.$email_err);
+        header('location:../views/reg.php?err='.$email_err);
         }else if (empty($password))
         {
         $p_err ="Please write password!!!?";
-        header('location:reg.php?p_err='.$p_err);
+        header('location:../views/reg.php?err='.$p_err);
         }else if ($password!=$confirmPassword) {
             $rp_err ="Password Not match!!!?";
-        header('location:reg.php?rp_err='.$rp_err);
+        header('location:../views/reg.php?err='.$rp_err);
         }else{
             
                 // $file = fopen('user.txt', 'a');

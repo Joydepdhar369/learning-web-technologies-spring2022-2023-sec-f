@@ -34,8 +34,8 @@
         $con = getConnection();
         $sql = "select * from userInformation where username='{$username}'";
         $result = mysqli_query($con, $sql);
-        $count = mysqli_num_rows($result);
-        echo"$count";
+        //$count = mysqli_num_rows($result);
+        return $result;
     }
     // function editprofile ($userupdate){
     //     $con = getConnection();

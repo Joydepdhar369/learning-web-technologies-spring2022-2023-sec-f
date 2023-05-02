@@ -1,6 +1,7 @@
 <?php
     session_start();
     if(isset($_COOKIE['Adminflag'])){
+        $username=$_REQUEST['username'];
 ?>
 <html>
     <head>
@@ -20,7 +21,7 @@
                                         <img height="120" src="/Joydep_Web_Technologies\LibraryLogo.jpg">
                                     </td>
                                     <td align="right">
-                                    <a href="../UserManagement/UserManagement.php">Back</a>
+                                    <a href="../UserManagement/UserManagement.php?userName=<?php echo $username ?>">Back</a>
                                     <!-- <a href="/Joydep_Web_Technologies\logout.php">Log Out</a> -->
                                     </td>   
                                 </tr>    

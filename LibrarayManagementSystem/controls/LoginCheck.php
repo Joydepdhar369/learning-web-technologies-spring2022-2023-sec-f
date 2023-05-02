@@ -31,17 +31,21 @@ require_once'../models/usermodels.php';
             if($Adminflag==true){
                 setcookie('Adminflag', 'ab', time()+3600, '/');
                 // $_SESSION['username'] = $username;
-                header('location: ../views/Admin.php');
+                // header('location: ../views/Admin.php?userName=$username;');
+                header("location: ../views/Admin.php?userName={$username}");
                 $Adminflag = false; 
             }else if ($Librarianflag== true) {
                 setcookie('Librarianflag', 'bc', time()+3600, '/');
                 // $_SESSION['username'] = $username;
-                header('location: ../views/Librarian.php');
+                // header('location: ../views/Librarian.php?userName={$username}');
+                // header("location: ../views/Admin.php?userName={$username}");
+                header("location: ../views/Librarian.php?userName={$username}");
                 $Librarianflag = false;
             }else if ($Memberflag==true) {
                 setcookie('Memberflag', 'ac', time()+3600, '/');
                 // $_SESSION['username'] = $username;
-                header('location: ../views/Member.php');
+                // header('location: ../views/Member.php?userName=$username');
+                header("location: ../views/Member.php?userName={$username}");
                 $Memberflag = false;
             }else{
                 header('location: login.php?msg=error');

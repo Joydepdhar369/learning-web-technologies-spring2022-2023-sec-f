@@ -1,12 +1,54 @@
 <?php
     session_start();
     if(isset($_COOKIE['Adminflag'])||isset($_COOKIE['Librarianflag'])){
+        $username=$_REQUEST['userName'];
 ?>
 <html>
     <head>
         <title>
             Add New Journal
         </title>
+        <style>
+        /* Center the form on the page */
+        div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        }
+
+        /* Style the fieldset */
+        fieldset {
+        border: 2px solid #ddd;
+        padding: 20px;
+        border-radius: 5px;
+        }
+
+        /* Style the legend */
+        legend {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        }
+
+        /* Style the input fields */
+        input[type=text], input[type=date] {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        }
+
+        /* Style the submit button */
+        input[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        }
+    </style>
     </head>
 <body>
     <center>
@@ -22,7 +64,7 @@
                                     <h3>AIUB Library</h3>
                                 </td>
                                 <td align="right">
-                                    <a href="../BookManagement.php">back</a>
+                                    <a href="../BookManagement.php?userName=<?php echo $username ?>">back</a>
                                 </td>   
                             </tr>    
                         </table>                   

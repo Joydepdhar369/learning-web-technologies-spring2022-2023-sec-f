@@ -1,12 +1,65 @@
 <?php
     session_start();
     if(isset($_COOKIE['Adminflag'])){
+    $username=$_REQUEST['userName'];
 ?>
 <html>
     <head>
         <title>
-            View Profile 
+            View Profile  
         </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+         <style>
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: #f2f2f2;
+            }
+            table {
+                border-collapse: collapse;
+                margin: 0 auto;
+            }
+            td {
+                padding: 10px;
+                vertical-align: top;
+            }
+            h1 {
+                text-align: center;
+                margin-top: 50px;
+                margin-bottom: 30px;
+            }
+            h2 {
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+            a {
+                text-decoration: none;
+                color: black;
+            }
+            a:hover {
+                text-decoration: underline;
+                color: red;
+            }
+            fieldset {
+                border: 1px solid #ddd;
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+            legend {
+                font-size: 18px;
+                font-weight: bold;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            img {
+                display: inline;
+                margin: 0 auto;
+            }
+            h4 {
+                margin: 10px 0;
+                color: #666;
+            }
+        </style>
     </head>
     <body>
 
@@ -26,7 +79,7 @@
                                 <a href="">View Member Account</a>
                                 <a href="">Assign Role</a>
                                 <a href="">Permission</a> -->
-                                <a href="../Admin.php">Back</a>
+                                <a href="../Admin.php?userName=<?php echo $username; ?>"><i class="fas fa-arrow-left"></i>Back</a>
                                 <!-- <a href="logout.php">Log Out</a> -->
 
                             </td>   
@@ -41,8 +94,9 @@
                 <td>
                     <fieldset>
                         <legend align="center"><h2>Personal Information</h2></legend>
-                        <a href="UpdateInfo.php">Update Information</a><br/>
-                        <a href="MemberInformationView.php">Member Information View</a>
+                        <!-- <a href="UpdateInfo.php">Update Information</a><br/>
+                        <a href="MemberInformationView.php">Member Information View</a> -->
+                        <a href="AdminAccount.php?username=<?php echo $username; ?>">ViewProfile</a>
                     </fieldset>
                 </td>
             </tr>
@@ -50,14 +104,14 @@
                 <td>          
                     <fieldset>
                         <legend align="center"><h2>Account Setting</h2></legend> 
-                        <a href="AdminAccount.php">Account Details</a>                       
+                        <a href="AdminAccount.php?username=<?php echo $username;?>">Account Details</a>                       
                     </fieldset>
                 </td>
             <tr>
                 <td>
                     <fieldset>
                         <legend align="center"><h2>Record History</h2></legend>
-                        <a href="RecordHistory.php">View Record History</a>
+                        <a href="RecordHistory.php?userName=<?php echo $username; ?>">View Record History</a>
                     </fieldset>
                 </td>
             </tr>
@@ -65,7 +119,7 @@
                 <td>
                     <fieldset>
                         <legend align="center"><h2>Request History</h2></legend>
-                        <a href="RequestHistory.php">View Request History</a>
+                        <a href="RequestHistory.php?userName=<?php echo $username; ?>">View Request History</a>
 
                     </fieldset>
                 </td>

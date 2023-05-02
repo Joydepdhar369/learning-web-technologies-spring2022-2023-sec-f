@@ -1,16 +1,3 @@
-<!-- while($row = mysqli_fetch_assoc($result)){
-            //print_r($row); echo "<br>";
-           echo " <tr>
-            <td>{$row['ID']}</td>
-            <td>{$row['Name']}</td>
-            <td>{$row['UserName']}</td>
-            <td>{$row['Email']}</td>
-            <td>{$row['Gender']}</td>
-            <td>{$row['DOB']}</td>
-            <td><a href='../controllers/deleteuserhandler.php?id=".$row['id']."'>Delete</a> </td>
-        
-        </tr>";
-        } -->
         <?php
         require_once "../../models/usermodels.php";
     session_start();
@@ -57,7 +44,8 @@
                             <th>Email</th>
                             <th>Gender</th>
                             <Th>DOB</Th>
-                            <th>Operation</th>
+                            <th>Delete</th>
+                            <th>Update</th>
                         </tr>";
                         
                 while($row = mysqli_fetch_assoc($state)){
@@ -91,7 +79,9 @@
                             <th>Email</th>
                             <th>Gender</th>
                             <Th>DOB</Th>
-                            <th>Operation</th>
+                            <th>Delete</th>
+                            <th>Update</th>
+
                         </tr>";
                         
                 while($row = mysqli_fetch_assoc($state)){
@@ -104,7 +94,7 @@
             <td>{$row['DOB']}</td>
             
             <td><a href='../../controls\deleteUserHandle.php?id=".$row['ID']."'>Delete</a> </td>
-            <td><a href='../../controls/UpdateProfile.php?id=".$row['ID']."'>UpdateInformation</a> </td>
+            <td><a href='UpdateInfo.php?id=".$row['ID']."'>UpdateInformation</a> </td>
             
         
         </tr>";

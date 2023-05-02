@@ -1,15 +1,15 @@
-<?php
+ <?php
     require_once "../../models/usermodels.php";
     session_start();
     if(isset($_COOKIE['Adminflag'])){
-        $username= $_REQUEST['username'];
+        $username= $_REQUEST['username']
 ?>
 <html>
     <head>
         <title>
             Update Personal Information
         </title>
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -105,41 +105,41 @@
                 ?>
                 
             </fieldset>
-            <!-- <fieldset>
-                <legend>View All</legend>
-                <!-- <?php
-    //             $state=Memberlist ();
-    //             echo "<table border='1' cellspacing='0' width='1000'>
-    //                     <tr>
-    //                         <th>ID</th>
-    //                         <th>Name</th>
-    //                         <th>User Name</th>
-    //                         <th>Email</th>
-    //                         <th>Gender</th>
-    //                         <Th>DOB</Th>
-    //                         <th>Delete</th>
-    //                         <th>Update</th>
+            <fieldset>
+                <legend>View Member Information</legend>
+                <?php
+                $state=Memberlist ();
+                echo "<table border='1' cellspacing='0' width='1000'>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>User Name</th>
+                            <th>Email</th>
+                            <th>Gender</th>
+                            <Th>DOB</Th>
+                            <th>Delete</th>
+                            <th>Update</th>
 
-    //                     </tr>";
+                        </tr>";
                         
-    //             while($row = mysqli_fetch_assoc($state)){
-    //        echo " <tr>
-    //         <td>{$row['ID']}</td>
-    //         <td>{$row['Name']}</td>
-    //         <td>{$row['UserName']}</td>
-    //         <td>{$row['Email']}</td>
-    //         <td>{$row['Gender']}</td>
-    //         <td>{$row['DOB']}</td>
+                while($row = mysqli_fetch_assoc($state)){
+           echo " <tr>
+            <td>{$row['ID']}</td>
+            <td>{$row['Name']}</td>
+            <td>{$row['UserName']}</td>
+            <td>{$row['Email']}</td>
+            <td>{$row['Gender']}</td>
+            <td>{$row['DOB']}</td>
             
-    //         <td><a href='../../controls\deleteUserHandle.php?id=".$row['ID']."'>Delete</a> </td>
-    //         <td><a href='UpdateInfo.php?id=".$row['ID']."'>UpdateInformation</a> </td>
+            <td><a href='../../controls\deleteUserHandle.php?id=".$row['ID']."'>Delete</a> </td>
+            <td><a href='UpdateInfo.php?id=".$row['ID']."'>UpdateInformation</a> </td>
             
         
-    //     </tr>";
-    // }
+        </tr>";
+    }
                 
-    //             echo "</table>";
-                ?> -->
+                echo "</table>";
+                ?> 
                 
             </fieldset>
     </body>

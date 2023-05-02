@@ -25,4 +25,11 @@
         
             return $status;
         }
+    
+    function searchJournal($query){
+    $conn = getConnection();
+    $sql = "SELECT * FROM jounralinformation WHERE JournalName LIKE '%$query%' OR AuthorName LIKE '%$query%' OR Genra LIKE '%$query%'";
+    $result = mysqli_query($conn, $sql);
+    return $result;
+    }
      ?>

@@ -1,12 +1,65 @@
 <?php
     session_start();
     if(isset($_COOKIE['Adminflag'])||isset($_COOKIE['Librarianflag'])){
+        $username=$_REQUEST['userName'];
 ?>
 <html>
     <head>
         <title>
             Book Management Studio
         </title>
+        <style>
+            /* CSS code here */
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: #f2f2f2;
+            }
+            table {
+                border-collapse: collapse;
+                margin: 0 auto;
+            }
+            td {
+                padding: 10px;
+                vertical-align: top;
+            }
+            h1 {
+                text-align: center;
+                margin-top: 50px;
+                margin-bottom: 30px;
+            }
+            h2 {
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+            a {
+                text-decoration: none;
+                color: #4CAF50;
+            }
+            a:hover {
+                text-decoration: underline;
+                color: red;
+            }
+            fieldset {
+                border: 1px solid #ddd;
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+            legend {
+                font-size: 18px;
+                font-weight: bold;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            img {
+                display: inline;
+                margin: 0 auto;
+            }
+            h4 {
+                margin: 10px 0;
+                color: #666;
+            }
+        </style>
     </head>
     <body>
 
@@ -26,7 +79,7 @@
                                 <a href="">View Member Account</a>
                                 <a href="">Assign Role</a>
                                 <a href="">Permission</a> -->
-                                <a href="..\Admin.php">Back</a>
+                                <a href="..\Admin.php?userName=<?php echo $username ?>">Back</a>
                                 <!-- <a href="logout.php">Log Out</a> -->
 
                             </td>   
@@ -42,9 +95,9 @@
                     <fieldset>
                         <legend align="center"><h2>Cataloging</h2></legend>
                         
-                        <a href="Cataloging\CatalogBook.php">Catalog Book</a><br/>
-                        <a href="Cataloging\CatalogingJournal.php">Catalog Journal</a> <br>
-                        <a href="Cataloging\CatalogOther.php">Catalog Other Item</a>  
+                        <a href="Cataloging\CatalogBook.php?userName=<?php echo $username ?>">Catalog Book</a><br/>
+                        <a href="Cataloging\CatalogingJournal.php?userName=<?php echo $username ?>">Catalog Journal</a> <br>
+                        <a href="Cataloging\CatalogOther.php?userName=<?php echo $username ?>">Catalog Other Item</a>  
                     </fieldset>
                 </td>
             </tr>
@@ -52,16 +105,16 @@
                 <td>          
                     <fieldset>
                         <legend align="center"><h2>Acquisition</h2></legend>
-                        <a href="Acquisition\AddNewBook.php">Add New Book</a><br>
-                        <a href="Acquisition\AddNewJournal.php">Add New Journal</a>                        
+                        <a href="Acquisition\AddNewBook.php?userName=<?php echo $username ?>">Add New Book</a><br>
+                        <a href="Acquisition\AddNewJournal.php?userName=<?php echo $username ?>">Add New Journal</a>                        
                     </fieldset>
                 </td>
             <tr>
                 <td>
                     <fieldset>
                         <legend align="center"><h2>Circulation</h2></legend>
-                        <a href="Circulation\CircularBook.php">Circulation Book</a><br>
-                        <a href="Circulation\CircularOther.php">Circulation other Item</a>
+                        <a href="Circulation\CircularBook.php?userName=<?php echo $username ?>">Circulation Book</a><br>
+                        <a href="Circulation\CircularJournal.php?userName=<?php echo $username ?>">Circulation other Item</a>
                     </fieldset>
                 </td>
             </tr>

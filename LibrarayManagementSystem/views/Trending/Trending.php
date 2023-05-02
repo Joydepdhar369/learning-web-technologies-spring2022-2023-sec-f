@@ -1,12 +1,64 @@
 <?php
     session_start();
     if(isset($_COOKIE['Adminflag'])){
+        $username=$_REQUEST['userName'];
 ?>
 <html>
     <head>
         <title>
             Trending
         </title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: #f2f2f2;
+            }
+            table {
+                border-collapse: collapse;
+                margin: 0 auto;
+            }
+            td {
+                padding: 10px;
+                vertical-align: top;
+            }
+            h1 {
+                text-align: center;
+                margin-top: 50px;
+                margin-bottom: 30px;
+            }
+            h2 {
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+            a {
+                text-decoration: none;
+                color: black;
+            }
+            a:hover {
+                text-decoration: underline;
+                color: red;
+            }
+            fieldset {
+                border: 1px solid #ddd;
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+            legend {
+                font-size: 18px;
+                font-weight: bold;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            img {
+                display: inline;
+                margin: 0 auto;
+            }
+            h4 {
+                margin: 10px 0;
+                color: #666;
+            }
+        </style>
     </head>
     <body>
 
@@ -26,7 +78,7 @@
                                 <a href="">View Member Account</a>
                                 <a href="">Assign Role</a>
                                 <a href="">Permission</a> -->
-                                <a href="../Admin.php">Back</a>
+                                <a href="../Admin.php?userName=<?php echo $username; ?>">Back</a>
                                 <!-- <a href="/Joydep_Web_Technologies\logout.php">Log Out</a> -->
 
                             </td>   
@@ -38,7 +90,7 @@
                 <td>
                     <fieldset>
                         <legend align="center"><h2>Most popular Book</h2></legend>
-                        <a href="mostPolularBook\mostpopularbook.php">Most Popular Item</a><br/> 
+                        <a href="mostPolularBook\mostpopularbook.php?userName=<?php echo $username; ?>">Most Popular Item</a><br/> 
                     </fieldset>
                 </td>
             </tr>
@@ -46,7 +98,7 @@
                 <td>          
                     <fieldset>
                         <legend align="center"><h2>Recently Added Book</h2></legend>
-                        <a href="RecentlyAddedBook\RecentlyAddedBook.php">Recently Added Book</a>                        
+                        <a href="RecentlyAddedBook\RecentlyAddedBook.php?userName=<?php echo $username; ?>">Recently Added Book</a>                        
                     </fieldset>
                 </td>
             <tr height =40>

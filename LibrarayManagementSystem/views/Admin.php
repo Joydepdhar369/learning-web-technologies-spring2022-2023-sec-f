@@ -1,14 +1,64 @@
 <?php
     session_start();
     if(isset($_COOKIE['Adminflag'])){
-        //session_start();
-        // $username = $_REQUEST['username']; 
+        $username = $_REQUEST['userName']; 
 ?>
 <html>
     <head>
         <title>
             AdminPortal
         </title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: #f2f2f2;
+            }
+            table {
+                border-collapse: collapse;
+                margin: 0 auto;
+            }
+            td {
+                padding: 10px;
+                vertical-align: top;
+            }
+            h1 {
+                text-align: center;
+                margin-top: 50px;
+                margin-bottom: 30px;
+            }
+            h2 {
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+            a {
+                text-decoration: none;
+                color: black;
+            }
+            a:hover {
+                text-decoration: underline;
+                color: blue;
+            }
+            fieldset {
+                border: 1px solid #ddd;
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+            legend {
+                font-size: 18px;
+                font-weight: bold;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            img {
+                display: inline;
+                margin: 0 auto;
+            }
+            h4 {
+                margin: 10px 0;
+                color: #666;
+            }
+        </style>
     </head>
     <body>
 
@@ -34,14 +84,16 @@
                 </td>
             </tr>
             <tr>
-                <h1>Welcome Back Admin</h1>
+                <h1>Welcome Back <?php echo$username;?></h1>
             </tr>
             <tr>
                 <td>
                     <fieldset>
                         <legend align="center"><h2>AdminManagement</h2></legend>
                         <p>AdminManagement:</p>
-                        <a href="UserManagement\UserManagement.php">AdminManagement</a>       
+                        <!-- <a href="UserManagement\UserManagement.php">AdminManagement</a>        -->
+                        <a href="UserManagement/UserManagement.php?userName=<?php echo $username; ?>">AdminManagement</a>
+
                     </fieldset>
                 </td>
             </tr>
@@ -50,14 +102,14 @@
                     <fieldset>
                         <legend align="center"><h2>Book Management</h2></legend>
                         <p>Book Management</p>
-                        <a href="BookManagement\Bookmanagement.php">BookManagement</a>                        
+                        <a href="BookManagement\Bookmanagement.php?userName=<?php echo $username; ?>">BookManagement</a>                        
                     </fieldset>
                 </td>
             <tr>
                 <td>
                     <fieldset>
                         <legend align="center"><h2>View Porfile</h2></legend>
-                        <a href="ViewProfile/ViewProfile.php">View Profile</a>
+                        <a href="ViewProfile/ViewProfile.php?userName=<?php echo $username; ?>">View Profile</a>
                     </fieldset>
                 </td>
             </tr>
@@ -65,7 +117,7 @@
                 <td>
                     <fieldset>
                         <legend align="center"><h2>Trending</h2></legend>
-                        <a href="Trending/Trending.php">Trending</a>
+                        <a href="Trending/Trending.php?userName=<?php echo $username; ?>">Trending</a>
                     </fieldset>
                 </td>
             </tr>

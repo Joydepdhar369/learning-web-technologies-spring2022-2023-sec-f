@@ -1,12 +1,54 @@
 <?php
     session_start();
+          require_once "../../models/usermodels.php";
+    // session_start();
+//    $username=$_REQUEST("username");
+// $username = $_GET['username'];
     if(isset($_COOKIE['Adminflag'])){
+        $username = $_REQUEST['username'];
 ?>
 <html>
     <head>
         <title>
             Update Personal Information
         </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            table {
+                border-collapse: collapse;
+                margin: auto;
+            }
+            th, td {
+                padding: 8px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+            th {
+                background-color: #4CAF50;
+                color: white;
+            }
+            a {
+                text-decoration: none;
+                color: #0066cc;
+            }
+            a:hover {
+                text-decoration: underline;
+                color: red;
+            }
+            fieldset {
+                margin: 20px auto;
+                padding: 20px;
+                border: 2px solid #ddd;
+                max-width: 1080px;
+            }
+            legend {
+                font-size: 20px;
+                font-weight: bold;
+            }
+        </style>
     </head>
     <body>
         <center>
@@ -22,12 +64,8 @@
                                     <h3>AIUB Library</h3>
                                 </td>
                                 <td align="right">
-                                    <!-- <a href="UserManagement\UserManagement.php">UserManagement</a>
-                                    <a href="">BookManagement</a>
-                                    <a href="">ViewProfile</a>
-                                    <a href="">Trending</a> -->
-                                    <a href="ViewProfile.php">back</a>
-                                    <a href="/Joydep_Web_Technologies\logout.php">LogOut</a>
+                                    <a href="ViewProfile.php?userName=<?php echo $username;?>"><i class="fas fa-arrow-left"></i>back</a>
+                                    <a href="/Joydep_Web_Technologies\logout.php"><i class="fas fa-sign-out-alt"></i>LogOut</a>
                                 </td>   
                             </tr>    
                         </table>                   
@@ -36,13 +74,66 @@
             </table>
         </center>
             <fieldset>
-                <legend>View Personal Information</legend>
-                UserID: <input type="text" name="UserID" value="Karim98">
-                <button>Search</button> <br><br>
-                Name: <input type="text" name="Name" value="Karim"> <br><br>
-                Email: <input type="text" name="emailaccount" value="Karim@gmail.com"><br><br>
-                Phone No: <input type="text" name="Phone" value="017********"> <br><br>
-                Date of Birth: <input type="text" name="DoB" value="12-4-2000">
+               <?php
+              
+            // echo$username;
+            // $status=getUser($username);
+
+            //     // $state = viewBook();
+                
+            //     echo "<table border='1' cellspacing='0' width='1000'>
+            //             <tr>
+                            
+            //             </tr>";
+                        
+            //     while($row = mysqli_fetch_assoc($status)){
+            //         echo "<tr>
+            //                 <td>{$row['Name']}</td>
+            //                 <td>{$row['Email']}</td>
+            //                 <td>{$row['UserName']}</td>
+            //                 <td>{$row['Gender']}</td>
+            //                 <td>{$row['DOB']}</td>
+
+            //                 <td><a href='../../../controls/deleteBook.php?id=".$row['ID']."'>Delete</a> </td>
+            //             </tr>";
+            //     }
+                
+            //     echo "</table>";
+            // echo $username;
+$status = getUser($username);
+
+echo "<table border='1' cellspacing='0' width='1000'>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Gender</th>
+            <th>DOB</th>
+            <th>Edit Info</th>
+        </tr>";
+        
+$count = 0; // initialize count variable
+
+while($row = mysqli_fetch_assoc($status)){
+    // check if count is even or odd to display in two columns
+    if($count % 2 == 0){
+        echo "<tr>";
+    }
+    echo "<td>{$row['Name']}</td>
+            <td>{$row['Email']}</td>
+            <td>{$row['UserName']}</td>
+            <td>{$row['Gender']}</td>
+            <td>{$row['DOB']}</td>
+            <td><a href='UpdateInfo.php?id=".$row['ID']."'>Edit</a></td>";
+    if($count % 2 != 0){
+        echo "</tr>";
+    }
+    $count++;
+}
+echo "</table>";
+
+            ?>
+            </fieldset>
             </fieldset>
     </body>
 </html>
@@ -51,3 +142,5 @@
         header('location: WelocmePage.php'); 
     }
 ?>
+<!-- C:\xampp\htdocs\LibrarayManagementSystem\controls\EditProfileInformation.php
+C:\xampp\htdocs\LibrarayManagementSystem\views\ViewProfile\UpdateInfo.php -->

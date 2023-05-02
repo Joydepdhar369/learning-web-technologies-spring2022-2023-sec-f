@@ -2,12 +2,50 @@
 require_once "../../../models/bookManagementmodel.php";
     session_start();
     if(isset($_COOKIE['Adminflag'])||isset($_COOKIE['Librarianflag'])){
+        $username=$_REQUEST['userName'];
 ?>
 <html>
     <head>
         <title>
             Catalog Book
         </title>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            table {
+                border-collapse: collapse;
+                margin: auto;
+            }
+            th, td {
+                padding: 8px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+            th {
+                background-color: #4CAF50;
+                color: white;
+            }
+            a {
+                text-decoration: none;
+                color: #0066cc;
+            }
+            a:hover {
+                text-decoration: underline;
+                color: red;
+            }
+            fieldset {
+                margin: 20px auto;
+                padding: 20px;
+                border: 2px solid #ddd;
+                max-width: 1080px;
+            }
+            legend {
+                font-size: 20px;
+                font-weight: bold;
+            }
+        </style>
     </head>
 <body>
     <center>
@@ -27,7 +65,7 @@ require_once "../../../models/bookManagementmodel.php";
                                     <a href="">BookManagement</a>
                                     <a href="">ViewProfile</a>
                                     <a href="">Trending</a> -->
-                                    <a href="..\BookManagement.php">back</a>
+                                    <a href="..\BookManagement.php?userName=<?php echo $username ?>">back</a>
                                 </td>   
                             </tr>    
                         </table>                   
@@ -38,79 +76,27 @@ require_once "../../../models/bookManagementmodel.php";
         <div>
             <fieldset>
                 <legend><h3>Library Book Catalog</h3></legend>
-                    <!-- <table border="1" cellspacing="0" width="1000">
-                        <tr>
-                            <th>Title</th>
-                            <th>Author</th>
-                            <th>Genre</th>
-                            <th>Publication Date</th>
-                            <th>ISBN</th>
-                        </tr>
-                        <tr>
-                            <td>The Great Gatsby</td>
-                            <td>F. Scott Fitzgerald</td>
-                            <td>Classic</td>
-                            <td>April 10, 1925</td>
-                            <td>9780521576542</td>
-                        </tr>
-                        <tr>
-                            <td>To Kill a Mockingbird</td>
-                            <td>Harper Lee</td>
-                            <td>Classic</td>
-                            <td>July 11, 1960</td>
-                            <td>9780061120084</td>
-                        </tr>
-                        <tr>
-                            <td>1984</td>
-                            <td>George Orwell</td>
-                            <td>Dystopian</td>
-                            <td>June 8, 1949</td>
-                            <td>9780451524935</td>
-                        </tr>
-                    </table> -->
                     <?php
-                //     $state=viewBook ();
-                //     while($row = mysqli_fetch_assoc($state)){
-            
-                //     //print_r($row); echo "<br>";
-                //     echo "
-                //     <!-- <table border="1" cellspacing="0" width="1000">
-                //         <tr>
-                //             <th>Title</th>
-                //             <th>Author</th>
-                //             <th>Genre</th>
-                //         </tr>
-                //     <tr>
-                //         <th>Title</th>
-                //         <th>Author</th>
-                //         <th>Genre</th>
-                //     </tr>
-                //     <tr>
-                //     <td>{$row['BookName']}</td>
-                //     <td>{$row['AuthorName']}</td>
-                //     <td>{$row['Genra']}</td>
-                //     </tr>
-                //     </table>";
-                // }<?php
-                $state = viewBook();
-                
-                echo "<table border='1' cellspacing='0' width='1000'>
-                        <tr>
-                            <th>Title</th>
-                            <th>Author</th>
-                            <th>Genre</th>
-                        </tr>";
+                        $state = viewBook();
                         
-                while($row = mysqli_fetch_assoc($state)){
-                    echo "<tr>
-                            <td>{$row['BookName']}</td>
-                            <td>{$row['AuthorName']}</td>
-                            <td>{$row['Genra']}</td>
-                            <td><a href='../../../controls/deleteBook.php?id=".$row['ID']."'>Delete</a> </td>
-                        </tr>";
-                }
-                
-                echo "</table>";
+                        echo "<table border='1' cellspacing='0' width='1000'>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Author</th>
+                                    <th>Genre</th>
+                                    <th>Actions</th>
+                                </tr>";
+                                
+                        while($row = mysqli_fetch_assoc($state)){
+                            echo "<tr>
+                                    <td>{$row['BookName']}</td>
+                                    <td>{$row['AuthorName']}</td>
+                                    <td>{$row['Genra']}</td>
+                                    <td><a href='../../../controls/deleteBook.php?id=".$row['ID']."'>Delete</a> </td>
+                                </tr>";
+                        }
+                        
+                        echo "</table>";
             ?>
             </fieldset>
         </div>
